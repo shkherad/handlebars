@@ -1,3 +1,9 @@
 <div>
-  {{#books}}{{> book}}{{/books}}
+  {{#each books}}
+  {{this.title}}
+  {{/each}}
 </div>
+
+{{!-- {{#books}} --}}
+{{!-- {{> book}} --}}
+{{!-- {{/books}} --}}

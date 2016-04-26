@@ -12,21 +12,17 @@ let getBooks = function(){
     // dataType: 'json'
   }).done(function(books){
     displayBooks(books);
+    debugger;
   });
 };
 
 let displayBooks = function(books){
   let bookListingTemplate = require('./templates/book-listing.handlebars');
-  for (let i = 0; i < books.length; i++) {
+  // for (let i = 0; i < books.length; i++) {
     $('.content').append(bookListingTemplate({
-      books:[
-        {
-        title: books[i].title,
-        desc: books[i].desc
-        }
-      ]
+      books
     }));
-  }
+  // }
 };
 
 
