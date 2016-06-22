@@ -4,35 +4,16 @@
 // let example = require('./example');
 
 const authEvents = require('./auth/events.js');
-
-let displayBooks = function(books){
-  let bookListingTemplate = require('./templates/book-listing.handlebars');
-  for (let i = 0; i < books.length; i++) {
-    $('.content').append(bookListingTemplate({
-      books:[
-        {
-        title: books[i].title,
-        desc: books[i].desc
-        }
-      ]
-    }));
-  }
-};
+const bookApi = require('./books/book_api.js');
 
 
-let getBooks = function(){
-  return $.ajax({
-    url: "http://book-json.herokuapp.com/books",
-    // method: 'GET',
-    // dataType: 'json'
-  }).done(function(books){
-    displayBooks(books);
-  });
-};
 
+
+
+// bookApi.getBooks();
 
 // On document ready
 $(() => {
   authEvents.addHandlers();
-  getBooks();
+
 });

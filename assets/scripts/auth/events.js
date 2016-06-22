@@ -6,7 +6,11 @@ const api = require('./api');
 const ui = require('./ui');
 
 
-const onSignUp = (event) => {
+const test = function(){
+  alert('test');
+};
+
+const onSignUp = function(event){
   event.preventDefault();
   let data = getFormFields(event.target);
   api.signUp(data)
@@ -14,7 +18,7 @@ const onSignUp = (event) => {
   .fail(ui.failure);
 };
 
-const onSignIn = (event) => {
+const onSignIn = function(event) {
   event.preventDefault();
   let data = getFormFields(event.target);
   api.signIn(data)
@@ -37,12 +41,19 @@ const onChangePassword = (event) => {
   .fail(ui.failure);
 };
 
+const onShowBooks = function(event){
+  event.preventDefault();
+
+}
+
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp);
   $('#sign-in').on('submit', onSignIn);
+
   $('#sign-out').on('submit', onSignOut);
   $('#change-password').on('submit', onChangePassword);
+  $('#show-books').on('click', onShowBooks);
 };
 //
 module.exports = {
